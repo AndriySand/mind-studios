@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: mind_studios_development
+
+test:
+  <<: *default
+  database: mind_studios_test
+
+production:
+  <<: *default
+  database: mind_studios_production
+  username: mind_studios
+  password: <%= ENV['MIND_STUDIOS_DATABASE_PASSWORD'] %>
