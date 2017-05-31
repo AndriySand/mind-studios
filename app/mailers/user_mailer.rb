@@ -1,9 +1,11 @@
 class UserMailer < ApplicationMailer
 
-  def notification(user)
-    @user = user
-    @url  = 'http://localhost:3000'
-    mail(to: @user.email, subject: 'Visit our site, please')
+  def notification(users)
+    @url = 'http://localhost:3000'
+    users.each do |user|
+      @user_name = user.name
+      mail(to: user.email, subject: 'Visit our site, please')
+    end
   end
 
   def weekly_winners(winners_rates)

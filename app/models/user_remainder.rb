@@ -6,9 +6,9 @@ class UserRemainder
   queue 'user remainder'
 
   def perform
-    User.all.each do |user|
-      next unless user.sign_in_between?
-      UserMailer.notification(user).deliver_now
-    end
+    start_interval, end_interval = [3.day, 1.day].map{|time| DateTime.now.ago(time).at_midnight.change(offset: 0)}
+    users = User.select("name, email").
+      where(last_sign_in_at: [start_interval..end_interval, start_interval - 2.days..end_interval - 3.days])
+    UserMailer.notification(users).deliver_now
   end
 end
