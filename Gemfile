@@ -12,7 +12,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'faker'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'delayed_job_recurring'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

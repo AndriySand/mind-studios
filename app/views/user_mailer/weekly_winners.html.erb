@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear, <%= @user.name %></h1>
+    <p>
+      This week these customers entered into TOP 10.<br>
+      <ul class='best-customers'>
+      <% @winners_rates.each do |winner_rate| %>
+        <li><span>The winner: <%= winner_rate.name %></span><span> and rate: <%= winner_rate.rate %></span></li>
+      <% end %>
+      </ul>
+    </p>
+    <p>
+      Our company cheers them.
+    </p>
+  </body>
+</html>
