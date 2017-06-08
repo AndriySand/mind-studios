@@ -1,28 +1,9 @@
-== README
+Основная задача сделать логику. Вьюхи можно не делать ( по желанию). 
+Код вылить на гитхаб и скинуть ссылку.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Отсылать email нотификации пользователям которые не входили в систему на 2, 3, 5 день с момента их последней аутентификации. То есть, перестали входить и вот если его не было 2 дня 1 писмьмо если он не входил уже 3 дня другое и если не ходил 5 третье
 
-Things you may want to cover:
+У пользователей есть ревью (много) (связанная талица с полями description, rate - 1..100 )
+каждые 7 дней необходимо формировать список 10 пользователей у которых суммарный рейтинг за все время наивысший и разослать всем этот список.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Разослать всем пользователям, у которых средний рейтинг (за 7 дней) больше 80, поздравление с этим знаменательным событием.
