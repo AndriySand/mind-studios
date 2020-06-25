@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActionController::Live
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -8,6 +9,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    # select kind, sum(value) from records group by kind having count(kind) > 1 order by kind;
+    # @records = Record.select('kind, sum(value) as val').group('kind').having("count(kind) > ?", 1).order('time')
+    @records = Record.select('kind, value as val, time').where("id != ? AND id != 3", 6).order('time desc').limit(2)
   end
 
   # GET /users/new
@@ -44,6 +48,14 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
+
+def stream
+  1_000_000.times do |i|
+    response.stream.write "This is line #{i}\n"
+  end
+ensure
+  response.stream.close
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
