@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+#  rails webpacker:install       # OR (on rails version < 5.0) rake webpacker:install
+#  rails webpacker:install:react # OR (on rails version < 5.0) rake webpacker:install:react
+#  rails generate react:install
+#  ruby 2.3.0
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
@@ -13,9 +18,12 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'faker'
 gem 'twitter-bootstrap-rails'
-gem 'delayed_job'
-gem 'delayed_job_active_record'
-gem 'delayed_job_recurring'
+# gem 'delayed_job'
+# gem 'delayed_job_active_record'
+# gem 'delayed_job_recurring'
+gem 'daemons'
+gem 'webpacker'
+gem 'react-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
